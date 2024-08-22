@@ -1,28 +1,20 @@
 from turtle import Turtle, Screen
 import random
 
-racing_turtles = []
-race_is_on = False
-
-
-def create_turtles(x, y, color, shape="turtle"):
-    t = Turtle(shape)
-    t.color(color)
-    t.penup()
-    t.goto(x, y)
-    racing_turtles.append(t)
-
-
-create_turtles(-300, -120, "green")
-create_turtles(-300, -70, "yellow")
-create_turtles(-300, -20, "purple")
-create_turtles(-300, 30, "orange")
-create_turtles(-300, 80, "red")
-create_turtles(-300, 130, "blue")
-
 screen = Screen()
 user_guess = screen.textinput(title="Make your bet!", prompt="Which turtle is going to win? Enter color name: ")
 colors = ["red", "blue", "green", "orange", "purple", "yellow"]
+positions = [-120, -70, -20, 30, 80, 130]
+racing_turtles = []
+race_is_on = False
+
+for turtle in range(0,6):
+    t = Turtle(shape="turtle")
+    t.color(colors[turtle])
+    t.penup()
+    t.goto(x=-300, y=positions[turtle])
+    racing_turtles.append(t)
+
 
 if user_guess:
     race_is_on = True
